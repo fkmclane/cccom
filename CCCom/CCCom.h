@@ -2,7 +2,7 @@
 #define CCCOM_H
 #include "Stream.h"
 
-class CCCom : public Stream {
+class CCComInternal : public Stream {
 	private:
 		uint8_t readRegister(uint8_t reg);
 		void writeRegister(uint8_t reg, uint8_t val);
@@ -33,4 +33,6 @@ class CCCom : public Stream {
 		inline size_t write(unsigned int n) { return write((uint8_t)n); }
 		inline size_t write(int n) { return write((uint8_t)n); }
 }
+
+CCComInternal CCCom;
 #endif
