@@ -34,5 +34,5 @@ class CCComInternal : public Stream {
 		inline size_t write(int n) { return write((uint8_t)n); }
 }
 
-CCComInternal CCCom;
+static CCComInternal CCCom;
 #endif
