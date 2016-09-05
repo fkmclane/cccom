@@ -13,20 +13,20 @@ class CCCom : public Stream {
 		void begin(int addr);
 		void beginTransmission(uint8_t addr);
 		void beginTransmission(int addr);
-		uint8_t endTransmission(void);
-		uint8_t endTransmission(uint8_t);
-		uint8_t requestFrom(uint8_t, uint8_t);
-		uint8_t requestFrom(uint8_t, uint8_t, uint8_t);
-		uint8_t requestFrom(int, int);
-		uint8_t requestFrom(int, int, int);
-		void onReceive(void (*)(int));
-		void onRequest(void (*)(void));
-		virtual size_t write(uint8_t);
-		virtual size_t write(const uint8_t *, size_t);
-		virtual int available(void);
-		virtual int read(void);
-		virtual int peek(void);
-		virtual void flush(void);
+		uint8_t endTransmission();
+		uint8_t endTransmission(uint8_t stop);
+		uint8_t requestFrom(uint8_t addr, uint8_t quant);
+		uint8_t requestFrom(uint8_t addr, uint8_t quant, uint8_t stop);
+		uint8_t requestFrom(int addr, int quant);
+		uint8_t requestFrom(int addr, int quant, int stop);
+		void onReceive(void (*)(int) handler);
+		void onRequest(void (*)(void) handler);
+		virtual size_t write(uint8_t val);
+		virtual size_t write(const uint8_t * buf, size_t size);
+		virtual int available();
+		virtual int read();
+		virtual int peek();
+		virtual void flush();
 
 		inline size_t write(unsigned long n) { return write((uint8_t)n); }
 		inline size_t write(long n) { return write((uint8_t)n); }
